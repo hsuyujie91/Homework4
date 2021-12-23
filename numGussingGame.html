@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chihuahua</title>
+	<style type="text/css">
+		h1{font-style: "Arial"; color: #0081a7;}
+		p{font-style: "Helvetica"; font: bold; color: #0098B0;}
+
+		.b {background-color: #00AFB9; color: white; padding: 12px 50px;  
+			display: inline-block; font-size: 16px; font-style: "Arial"; border: lightcoral; border-radius: 6px;}
+
+		.b:hover{background-color: #40C3C2; color: white;}
+
+		.all{width: 300px; background-color: #c0fdff; text-align: center; position: relative; margin: 0 auto;}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<h1>Guessing Game</h1>
+		<p><br>Your Guess (1~100)</p>
+		<form>
+			<p><input id = "guess" type="text" size='30' maxlength='3'></p>
+			<p><input id="run" class="b" type="button" value="Play" onclick="go()"></p>
+		</form>
+		<div id="result">
+			<div>Result</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		
+		var answer = Math.floor(Math.random() * 100 + 1);
+		var min = 1, max = 100;
+
+		function go(){
+			var input = document.getElementById('guess').value;
+			if(input == answer){
+				alert('BOOM! You\'re right but this homework is TOO HARD\nI am angry now 7pupu');
+			}else if (input < answer){
+				min = input;
+				write();
+			}else {
+				max = input;
+				write();
+			}
+		}
+
+		function write(){
+			var newLine = document.createElement('div');
+			var textNode = document.createTextNode(min + '~' + max);
+			newLine.appendChild(textNode);
+			document.getElementById('result').appendChild(newLine);
+		}
+	</script>
+
+</body>
+</html>
